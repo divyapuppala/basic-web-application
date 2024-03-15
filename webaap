@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+
+<!DOCTYPE html>
+<html>
+<head>
+<title>User Input Form</title>
+<style>  
+.error {  
+color: red;     
+}    
+</style>
+</head>
+<body> 
+<h1>User Input Form</h1>  
+<form method="POST" action="process.php">     
+<label for="name">Name:</label>     
+<input type="text" id="name" name="name" required>    
+<br>    
+<label for="email">Email:</label>       
+<input type="email" id="email" name="email" required>   
+<br>      
+<label for="age">Age:</label> 
+<input type="number" id="age" name="age" min="1" required>   
+<br>      
+<label for="dob">Date of Birth:</label>  
+<input type="date" id="dob" name="dob" required>      
+<br>      
+<input type="submit" value="Submit">   
+</form>
+    <script>     
+// Client-side validation  
+const form = document.querySelector('form');      
+form.addEventListener('submit', function(event) 
+{        
+const emailInput = document.getElementById('email');            const ageInput = document.getElementById('age');            const emailError = document.getElementById('email-error');            const ageError = document.getElementById('age-error');
+            // Validate email format            if (!emailInput.checkValidity()) {                emailError.textContent = 'Please enter a valid email address.';                event.preventDefault();            } else {                emailError.textContent = '';            }
+            // Validate age as a positive integer            if (ageInput.value < 1 || !Number.isInteger(Number(ageInput.value))) {                ageError.textContent = 'Please enter a valid age.';                event.preventDefault();            } else {                ageError.textContent = '';            }        });    </script></body></html>
+
+</body>
+</html>
